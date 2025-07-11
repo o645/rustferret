@@ -19,3 +19,8 @@ extern "x86-interrupt" fn breakpoint_handler(stack_frame: InterruptStackFrame)
 {
     println!("EXCEPTION - BREAKPOINT:\n{:#?}", stack_frame);
 }
+
+#[test_case]
+fn test_breakpoint(){
+    x86_64::instructions::interrupts::int3();
+}
