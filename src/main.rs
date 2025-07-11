@@ -10,6 +10,8 @@ use rustferret::println;
 #[unsafe(no_mangle)]
 pub extern "C" fn _start() -> ! {
     println!("Hello World{}", "!");
+    rustferret::init();
+    x86_64::instructions::interrupts::int3();
 
     #[cfg(test)]
     test_main();
